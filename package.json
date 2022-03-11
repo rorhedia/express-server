@@ -1,0 +1,31 @@
+{
+  "name": "express-server",
+  "version": "0.0.1",
+  "description": "Servidor con express y pruebas unitarias",
+  "main": "app.js",
+  "scripts": {
+    "dev": "nodemon app",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@dan:rorhedia/express-server.git"
+  },
+  "keywords": [
+    "server",
+    "express",
+    "jest",
+    "supertest"
+  ],
+  "author": "@rorhedia",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.0",
+    "express": "^4.17.3",
+    "mongoose": "^6.2.5"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  }
+}

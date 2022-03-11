@@ -1,0 +1,6 @@
+# Variables de entorno
+.env
+
+# Directorios
+.idea/
+node_modules/
