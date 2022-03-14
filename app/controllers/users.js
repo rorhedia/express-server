@@ -1,24 +1,33 @@
 const { httpErrors } = require( '../helpers/handleError' );
+const userModel = require( './../models/users' );
 
-const getItems = ( req, res ) => {
+const getItems = async ( req, res ) => {
     try {
-        res.status( 200 ).json( { data: 'OK' } )
+        const result = await userModel.find();
+        res.status( 200 ).json( { data: result } )
     } catch ( e ) {
         httpErrors( res, e );
     }
 }
 
-const getItem = ( req, res ) => {
+const getItem = async ( req, res ) => {
     try {
-        res.status( 200 ).json( { data: 'OK' } )
+        const { id } = req.params;
+        const result = await userModel.findById( id )
+        res.status( 200 ).json( { data: result } )
     } catch ( e ) {
         httpErrors( res, e );
     }
 }
 
-const createItem = ( req, res ) => {
+const createItem = async ( req, res ) => {
     try {
-        res.status( 200 ).json( { data: 'OK' } )
+        const { name, age, email } = req.body;
+        const result = await userModel.create( {
+            name, age, email
+        } );
+
+        res.status( 200 ).json( { data: result } )
     } catch ( e ) {
         httpErrors( res, e );
     }
