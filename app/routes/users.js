@@ -1,11 +1,12 @@
 const express = require( 'express' );
 const router = express.Router();
 const { getItems, getItem, createItem, updateItem, deleteItem } = require( '../controllers/users' );
+const checkOrigin = require( '../middleware/origin' );
 
-router.get( '/', getItems );
-router.get( '/:id', getItem );
-router.post( '/', createItem );
-router.patch( '/:id', updateItem );
-router.delete( '/:id', deleteItem );
+router.get( '/', checkOrigin, getItems );
+router.get( '/:id', checkOrigin, getItem );
+router.post( '/', checkOrigin, createItem );
+router.patch( '/:id', checkOrigin, updateItem );
+router.delete( '/:id', checkOrigin, deleteItem );
 
-module.exports = router
+module.exports = router;
